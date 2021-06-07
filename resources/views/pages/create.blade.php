@@ -2,7 +2,7 @@
 @section('content')
     
     <form action="{{route('stock')}}" method="POST">
-        @csrf
+        @csrf   
         @method('POST')
         <label for="name">name</label>
         <input type="text" id="name" name="name" required>

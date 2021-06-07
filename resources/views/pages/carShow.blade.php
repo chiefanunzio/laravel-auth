@@ -10,7 +10,7 @@
             CAR KW=> {{$car -> kw}}   <br>   
             
             CAR BRAND => {{$car -> brand -> name}}   
-        </li>      
+        </li>         
     </ul>
     
     @if (count($car -> pilots) > 0)
@@ -27,4 +27,5 @@
     @else
         <h2>NON CI SONO PILOTI ASSEGNATI A QUESTA MACCHINA</h2>
     @endif
-@endsection
+        
+@endsection   

@@ -7,6 +7,9 @@
             <ul>
                 @foreach ($cars as $car)
                     <li> 
+                         <h2>   
+                            <a href="{{route('edit', $car -> id)}}">update a car</a>       
+                        </h2>    
                         CAR NAME =    
                         <a href="{{ route('carShow', $car -> id) }}">     
                         {{$car -> name}}    
@@ -14,7 +17,7 @@
                         </a> <br>   
                         
                         CAR BRAND => {{$car -> brand -> name}}   
-                        <ol>   
+                        <ol>      
                             PILOT CAR :  
                             @foreach ($car -> pilots as $pilot)
                             <a href="{{ route('show', $pilot -> id) }}">
@@ -27,5 +30,6 @@
             </ul>             
         </div>           
     </body>
+         
     @endsection   
 </html>

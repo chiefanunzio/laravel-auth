@@ -37,3 +37,4 @@ class myController extends Controller
         return view('pages.carShow', compact('car'));            
     }    
 }
+   

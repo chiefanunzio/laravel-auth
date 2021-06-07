@@ -40,8 +40,43 @@ class HomeController extends Controller
         $car -> save();   
 
         $car -> pilots() -> attach($request -> get('pilots_id'));
-        $car -> save();      
-        return redirect() -> route('home');         
+        $car -> save();         
+        return redirect() -> route('carShow', $car -> id);         
               
     }
-}
+
+     public function edit($id)   
+    {
+        $car = Car::findOrFail($id);   
+        $pilots = Pilot::all();      
+        $brands = Brand::all();            
+        return view('pages.edit', compact('brands','car','pilots'));                     
+    } 
+
+     public function update(Request $request, $id)   
+    {
+   
+               
+        $validated = $request -> validate([      
+
+            'name' => 'required|string|min:3'  ,     
+            'model' => 'required|string|min:2' ,      
+            'kw' => 'required|integer|max:2000' 
+        ]);   
+
+        $brand = Brand::findOrFail($request -> get('brand_id'));
+        // $pilot = Pilot::findOrFail($request -> get('pilot_id'));
+
+        $car = Car::make($validated);      
+        $car ->brand() -> associate($brand);
+        $car -> save();   
+
+        $car -> pilots() -> attach($request -> get('pilots_id'));
+        $car -> save();         
+        return redirect() -> route('carShow', $car -> id);                  
+              
+    }   
+
+    
+    
+}   

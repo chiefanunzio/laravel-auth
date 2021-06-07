@@ -32,11 +32,7 @@
         
         
     
-    </div>   
-      
-        
-             
-   
+    </div>           
       
 @endsection   
 
